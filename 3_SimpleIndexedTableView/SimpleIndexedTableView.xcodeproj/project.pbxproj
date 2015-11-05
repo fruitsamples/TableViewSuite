@@ -12,6 +12,7 @@
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		280176720F7D74EE0082ABE2 /* TimeZoneWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 280176710F7D74EE0082ABE2 /* TimeZoneWrapper.m */; };
 		282E81C40D78CB3C004DAD01 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 282E81C30D78CB3C004DAD01 /* RootViewController.m */; };
 		287507C20D9D9B340084AA62 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 287507C10D9D9B340084AA62 /* MainWindow.xib */; };
 		2898DCCA0D94662B00E0EC8B /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 2898DCC90D94662B00E0EC8B /* Default.png */; };
@@ -26,6 +27,8 @@
 		1D3623EB0D0F72F000981E51 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		1D6058910D05DD3D006BFB54 /* SimpleIndexedTableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleIndexedTableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		280176700F7D74EE0082ABE2 /* TimeZoneWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeZoneWrapper.h; sourceTree = "<group>"; };
+		280176710F7D74EE0082ABE2 /* TimeZoneWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeZoneWrapper.m; sourceTree = "<group>"; };
 		282E81C20D78CB3C004DAD01 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		282E81C30D78CB3C004DAD01 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		287507C10D9D9B340084AA62 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
@@ -59,6 +62,8 @@
 				282E81C30D78CB3C004DAD01 /* RootViewController.m */,
 				1D3623240D0F684500981E51 /* SimpleIndexedTableViewAppDelegate.h */,
 				1D3623250D0F684500981E51 /* SimpleIndexedTableViewAppDelegate.m */,
+				280176700F7D74EE0082ABE2 /* TimeZoneWrapper.h */,
+				280176710F7D74EE0082ABE2 /* TimeZoneWrapper.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -197,6 +202,7 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* SimpleIndexedTableViewAppDelegate.m in Sources */,
 				282E81C40D78CB3C004DAD01 /* RootViewController.m in Sources */,
+				280176720F7D74EE0082ABE2 /* TimeZoneWrapper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,7 +261,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
-				SDKROOT = iphoneos2.0;
+				SDKROOT = iphoneos3.0;
 			};
 			name = Debug;
 		};
@@ -269,7 +275,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				SDKROOT = iphoneos2.0;
+				SDKROOT = iphoneos3.0;
 			};
 			name = Release;
 		};

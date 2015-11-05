@@ -1,225 +1,214 @@
+
 /*
-
-File: RootViewController.m
-Abstract: View controller that serves as the table view's data source and
-delegate. It also set up the data.
-
-Version: 1.8
-
-Disclaimer: IMPORTANT:  This Apple software is supplied to you by Apple Inc.
-("Apple") in consideration of your agreement to the following terms, and your
-use, installation, modification or redistribution of this Apple software
-constitutes acceptance of these terms.  If you do not agree with these terms,
-please do not use, install, modify or redistribute this Apple software.
-
-In consideration of your agreement to abide by the following terms, and subject
-to these terms, Apple grants you a personal, non-exclusive license, under
-Apple's copyrights in this original Apple software (the "Apple Software"), to
-use, reproduce, modify and redistribute the Apple Software, with or without
-modifications, in source and/or binary forms; provided that if you redistribute
-the Apple Software in its entirety and without modifications, you must retain
-this notice and the following text and disclaimers in all such redistributions
-of the Apple Software.
-Neither the name, trademarks, service marks or logos of Apple Inc. may be used
-to endorse or promote products derived from the Apple Software without specific
-prior written permission from Apple.  Except as expressly stated in this notice,
-no other rights or licenses, express or implied, are granted by Apple herein,
-including but not limited to any patent rights that may be infringed by your
-derivative works or by other works in which the Apple Software may be
-incorporated.
-
-The Apple Software is provided by Apple on an "AS IS" basis.  APPLE MAKES NO
-WARRANTIES, EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION THE IMPLIED
-WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY AND FITNESS FOR A PARTICULAR
-PURPOSE, REGARDING THE APPLE SOFTWARE OR ITS USE AND OPERATION ALONE OR IN
-COMBINATION WITH YOUR PRODUCTS.
-
-IN NO EVENT SHALL APPLE BE LIABLE FOR ANY SPECIAL, INDIRECT, INCIDENTAL OR
-CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
-GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
-ARISING IN ANY WAY OUT OF THE USE, REPRODUCTION, MODIFICATION AND/OR
-DISTRIBUTION OF THE APPLE SOFTWARE, HOWEVER CAUSED AND WHETHER UNDER THEORY OF
-CONTRACT, TORT (INCLUDING NEGLIGENCE), STRICT LIABILITY OR OTHERWISE, EVEN IF
-APPLE HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
-Copyright (C) 2008 Apple Inc. All Rights Reserved.
-
-*/
+     File: RootViewController.m
+ Abstract: View controller that serves as the table view's data source and delegate. It uses the current UILocalizedIndexedCollation object to organize the time zones into appropriate sections, and also to provide information about section titles and section index titles.
+ 
+  Version: 2.0
+ 
+ Disclaimer: IMPORTANT:  This Apple software is supplied to you by Apple
+ Inc. ("Apple") in consideration of your agreement to the following
+ terms, and your use, installation, modification or redistribution of
+ this Apple software constitutes acceptance of these terms.  If you do
+ not agree with these terms, please do not use, install, modify or
+ redistribute this Apple software.
+ 
+ In consideration of your agreement to abide by the following terms, and
+ subject to these terms, Apple grants you a personal, non-exclusive
+ license, under Apple's copyrights in this original Apple software (the
+ "Apple Software"), to use, reproduce, modify and redistribute the Apple
+ Software, with or without modifications, in source and/or binary forms;
+ provided that if you redistribute the Apple Software in its entirety and
+ without modifications, you must retain this notice and the following
+ text and disclaimers in all such redistributions of the Apple Software.
+ Neither the name, trademarks, service marks or logos of Apple Inc. may
+ be used to endorse or promote products derived from the Apple Software
+ without specific prior written permission from Apple.  Except as
+ expressly stated in this notice, no other rights or licenses, express or
+ implied, are granted by Apple herein, including but not limited to any
+ patent rights that may be infringed by your derivative works or by other
+ works in which the Apple Software may be incorporated.
+ 
+ The Apple Software is provided by Apple on an "AS IS" basis.  APPLE
+ MAKES NO WARRANTIES, EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION
+ THE IMPLIED WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY AND FITNESS
+ FOR A PARTICULAR PURPOSE, REGARDING THE APPLE SOFTWARE OR ITS USE AND
+ OPERATION ALONE OR IN COMBINATION WITH YOUR PRODUCTS.
+ 
+ IN NO EVENT SHALL APPLE BE LIABLE FOR ANY SPECIAL, INDIRECT, INCIDENTAL
+ OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ INTERRUPTION) ARISING IN ANY WAY OUT OF THE USE, REPRODUCTION,
+ MODIFICATION AND/OR DISTRIBUTION OF THE APPLE SOFTWARE, HOWEVER CAUSED
+ AND WHETHER UNDER THEORY OF CONTRACT, TORT (INCLUDING NEGLIGENCE),
+ STRICT LIABILITY OR OTHERWISE, EVEN IF APPLE HAS BEEN ADVISED OF THE
+ POSSIBILITY OF SUCH DAMAGE.
+ 
+ Copyright (C) 2009 Apple Inc. All Rights Reserved.
+ 
+ */
 
 #import "RootViewController.h"
 #import "SimpleIndexedTableViewAppDelegate.h"
-#import <CoreFoundation/CoreFoundation.h>
 
+#import "TimeZoneWrapper.h"
 
-NSString *localeNameForTimeZoneNameComponents(NSArray *nameComponents);
+// The sections array and the collation are private.
+@interface RootViewController()
+@property (nonatomic, retain) NSMutableArray *sectionsArray;
+@property (nonatomic, retain) UILocalizedIndexedCollation *collation;
+- (void)configureSections;
+@end
 
 
 @implementation RootViewController
 
-
-@synthesize displayList;
-@synthesize indexLetters;
+@synthesize	timeZonesArray, sectionsArray, collation;
 
 
-- (id)initWithStyle:(UITableViewStyle)style {
-	if (self = [super initWithStyle:style]) {
-		self.title = NSLocalizedString(@"Time Zones", @"Time Zones title");
-	}
-	return self;
-}
-
+#pragma mark -
+#pragma mark View lifecycle
 
 - (void)viewDidLoad {
-	[self setUpDisplayList];
+	self.title = @"Time Zones";
 }
 
 
-- (void)dealloc {
-	
-	[displayList release];
-    [super dealloc];
-}
-
+#pragma mark -
+#pragma mark Table view data source and delegate methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-	// Number of sections is the number of region dictionaries
-	return [displayList count];
+	// The number of sections is the same as the number of titles in the collation.
+    return [[collation sectionTitles] count];
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	// Number of rows is the number of names in the region dictionary for the specified section
-	NSDictionary *letterDictionary = [displayList objectAtIndex:section];
-	NSArray *zonesForLetter = [letterDictionary objectForKey:@"timeZones"];
-	return [zonesForLetter count];
+	
+	// The number of time zones in the section is the count of the array associated with the section in the sections array.
+	NSArray *timeZonesInSection = [sectionsArray objectAtIndex:section];
+	
+    return [timeZonesInSection count];
 }
-
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-	// The header for the section is the region name -- get this from the dictionary at the section index
-	NSDictionary *sectionDictionary = [displayList objectAtIndex:section];
-	return [sectionDictionary valueForKey:@"letter"];
-}
-
-
-- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
-	/*
-	Return the index titles for each of the sections (e.g. "A", "B", "C"...).
-	Use key-value coding to get the value for the key @"letter" in each of the dictionaries in list.
-	 */
-	return [displayList valueForKey:@"letter"];
-}
-
-
-- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index {
-	// Return the index for the given section title
-	return [indexLetters indexOfObject:title];
-}
-
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    static NSString *CellIdentifier = @"Cell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+    }
+    
+	// Get the time zone from the array associated with the section index in the sections array.
+	NSArray *timeZonesInSection = [sectionsArray objectAtIndex:indexPath.section];
 	
-	static NSString *MyIdentifier = @"MyIdentifier";
+	// Configure the cell with the time zone's name.
+	TimeZoneWrapper *timeZone = [timeZonesInSection objectAtIndex:indexPath.row];
+    cell.textLabel.text = timeZone.localeName;
 	
-	// Try to retrieve from the table view a now-unused cell with the given identifier
-	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
-	
-	// If no cell is available, create a new one using the given identifier
-	if (cell == nil) {
-		cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:MyIdentifier] autorelease];
-	}
-	
-	NSDictionary *letterDictionary = [displayList objectAtIndex:indexPath.section];
-	NSArray *zonesForLetter = [letterDictionary objectForKey:@"timeZones"];
-	NSDictionary *timeZoneDictionary = [zonesForLetter objectAtIndex:indexPath.row];
-	
-	// Set the cell's text to the name of the time zone at the row
-	cell.text = [timeZoneDictionary objectForKey:@"timeZoneLocaleName"];
-	return cell;
-}
-
-
-- (void)setUpDisplayList {
-	/*
-	 Create an array (timeZones) of dictionaries
-	 Each dictionary groups together the time zones with locale names beginning with a particular letter:
-	 key = "letter" value = e.g. "A"
-	 key = "timeZones" value = [array of dictionaries]
-	 
-	 Each dictionary in "timeZones" contains keys "timeZone" and "timeZoneLocaleName"
-	 */
-	
-	SimpleIndexedTableViewAppDelegate *appDelegate = (SimpleIndexedTableViewAppDelegate *)[[UIApplication sharedApplication] delegate];
-	NSArray *knownTimeZoneNames = [appDelegate list];
-	
-	NSMutableDictionary *indexedTimeZones = [[NSMutableDictionary alloc] init];
-	
-	for (NSString *name in knownTimeZoneNames) {
-		
-		// The region name is unused in this example
-		NSArray *components = [name componentsSeparatedByString:@"/"];
-		
-		NSString *timeZoneLocaleName = localeNameForTimeZoneNameComponents(components);
-		
-		NSString *firstLetter = [timeZoneLocaleName substringToIndex:1];
-		NSMutableArray *indexArray = [indexedTimeZones objectForKey:firstLetter];
-		if (indexArray == nil) {
-			indexArray = [[NSMutableArray alloc] init];
-			[indexedTimeZones setObject:indexArray forKey:firstLetter];
-			[indexArray release];
-		}
-		
-		NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:name];
-		NSDictionary *timeZoneDictionary = [[NSDictionary alloc] initWithObjectsAndKeys:timeZone, @"timeZone", timeZoneLocaleName, @"timeZoneLocaleName", nil];
-		[indexArray addObject:timeZoneDictionary];
-	}
-	
-	/*
-	 Finish setting up the data structure:
-	 Create the timezones array;
-	 Sort the used index letters and keep as an instance variable;
-	 Sort the contents of the timeZones arrays;
-	*/
-	NSMutableArray *timeZones = [[NSMutableArray alloc] init];
-
-	// Normally we'd use a localized comparison to present information to the user, but here we know the data only contains unaccented uppercase letters
-	self.indexLetters = [[indexedTimeZones allKeys] sortedArrayUsingSelector:@selector(compare:)];
-	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timeZoneLocaleName" ascending:YES];
-	NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
-		
-	for (NSString *indexLetter in indexLetters) {
-		
-		NSMutableArray *timeZoneDictionaries = [indexedTimeZones objectForKey:indexLetter];
-		[timeZoneDictionaries sortUsingDescriptors:sortDescriptors];
-		
-		NSDictionary *letterDictionary = [[NSDictionary alloc] initWithObjectsAndKeys:indexLetter, @"letter", timeZoneDictionaries, @"timeZones", nil];
-		[timeZones addObject:letterDictionary];
-		[letterDictionary release];
-	}
-	[sortDescriptor release];
-	
-	self.displayList = timeZones;
-	[timeZones release];
+    return cell;
 }
 
 
 /*
- To conform to Human Interface Guildelines, since selecting a row would have no effect (such as navigation), make sure that rows cannot be selected.
+ Section-related methods: Retrieve the section titles and section index titles from the collation.
  */
-- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	return nil;
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return [[collation sectionTitles] objectAtIndex:section];
+}
+
+
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
+    return [collation sectionIndexTitles];
+}
+
+
+- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index {
+    return [collation sectionForSectionIndexTitleAtIndex:index];
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	[tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+
+#pragma mark -
+#pragma mark Set the data array and configure the section data
+
+- (void)setTimeZonesArray:(NSMutableArray *)newDataArray {
+	if (newDataArray != timeZonesArray) {
+		[timeZonesArray release];
+		timeZonesArray = [newDataArray retain];
+	}
+	if (timeZonesArray == nil) {
+		self.sectionsArray = nil;
+	}
+	else {
+		[self configureSections];
+	}
+}
+
+
+- (void)configureSections {
+	
+	// Get the current collation and keep a reference to it.
+	self.collation = [UILocalizedIndexedCollation currentCollation];
+	
+	NSInteger index, sectionTitlesCount = [[collation sectionTitles] count];
+	
+	NSMutableArray *newSectionsArray = [[NSMutableArray alloc] initWithCapacity:sectionTitlesCount];
+	
+	// Set up the sections array: elements are mutable arrays that will contain the time zones for that section.
+	for (index = 0; index < sectionTitlesCount; index++) {
+		NSMutableArray *array = [[NSMutableArray alloc] init];
+		[newSectionsArray addObject:array];
+		[array release];
+	}
+	
+	// Segregate the time zones into the appropriate arrays.
+	for (TimeZoneWrapper *timeZone in timeZonesArray) {
+		
+		// Ask the collation which section number the time zone belongs in, based on its locale name.
+		NSInteger sectionNumber = [collation sectionForObject:timeZone collationStringSelector:@selector(localeName)];
+		
+		// Get the array for the section.
+		NSMutableArray *sectionTimeZones = [newSectionsArray objectAtIndex:sectionNumber];
+		
+		//  Add the time zone to the section.
+		[sectionTimeZones addObject:timeZone];
+	}
+	
+	// Now that all the data's in place, each section array needs to be sorted.
+	for (index = 0; index < sectionTitlesCount; index++) {
+		
+		NSMutableArray *timeZonesArrayForSection = [newSectionsArray objectAtIndex:index];
+		
+		// If the table view or its contents were editable, you would make a mutable copy here.
+		NSArray *sortedTimeZonesArrayForSection = [collation sortedArrayFromArray:timeZonesArrayForSection collationStringSelector:@selector(localeName)];
+		
+		// Replace the existing array with the sorted array.
+		[newSectionsArray replaceObjectAtIndex:index withObject:sortedTimeZonesArrayForSection];
+	}
+	
+	self.sectionsArray = newSectionsArray;
+	[newSectionsArray release];	
+}
+
+
+
+#pragma mark -
+#pragma mark Memory management
+
+- (void)dealloc {
+	[timeZonesArray release];
+	[sectionsArray release];
+	[collation release];
+    [super dealloc];
 }
 
 
 @end
-
-
-NSString *localeNameForTimeZoneNameComponents(NSArray *nameComponents) {
-	if ([nameComponents count] == 2) {
-		return [nameComponents objectAtIndex:1];
-	}
-	NSString *localeName = [NSString stringWithFormat:@"%@ (%@)", [nameComponents objectAtIndex:2], [nameComponents objectAtIndex:1]];
-	return localeName;
-}
 

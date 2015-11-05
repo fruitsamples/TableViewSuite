@@ -68,7 +68,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		080E96DDFE201D6D7F000001 /* Views and Controllers */ = {
+		080E96DDFE201D6D7F000001 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				28BDD37C0D628913006FBFB9 /* RootViewController.h */,
@@ -76,7 +76,7 @@
 				2867DEFC0D581C2E0037AED8 /* TableViewCellSubviewsAppDelegate.h */,
 				2867DEFB0D581C2E0037AED8 /* TableViewCellSubviewsAppDelegate.m */,
 			);
-			name = "Views and Controllers";
+			name = "View Controllers";
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -103,8 +103,8 @@
 			isa = PBXGroup;
 			children = (
 				28F1A8850DC9365F00332FD8 /* ReadMe.txt */,
+				080E96DDFE201D6D7F000001 /* View Controllers */,
 				28275B330D6E06C500A8AFA4 /* Model Classes */,
-				080E96DDFE201D6D7F000001 /* Views and Controllers */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
@@ -285,7 +285,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
-				SDKROOT = iphoneos2.0;
+				SDKROOT = iphoneos3.0;
 			};
 			name = Debug;
 		};
@@ -298,7 +298,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				SDKROOT = iphoneos2.0;
+				SDKROOT = iphoneos3.0;
 			};
 			name = Release;
 		};
