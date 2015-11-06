@@ -11,7 +11,6 @@ This sample shows how to use UITableView through a progression of increasingly a
 
 * The third example shows how to set up a table view to display an index. The time zones are separated into sections using UILocalizedIndexedCollation.
 
-
 When implementing a table view cell, there's a tension between optimal scrolling performance and optimal edit/reordering performance. You should typically use subviews in the cell's content view.
 
 When you have an edit or reordering control, using subviews makes the implementation easier, and the animations perform better because UIKit doesn't have to redraw during animations.
@@ -22,7 +21,6 @@ Subviews have two costs:
 
 If the content is complex, however (more than about three subviews), scrolling performance may suffer. If this becomes a problem, you can instead draw directly in a subview of the table view cell's content view.
 
-
 * The fourth example displays more information about each time zone, such as the time and relative day in that time zone. Its main aim is to show how you can customize a table view cell using subviews. It also introduces custom classes to represent regions and time zones to help reduce the overhead of calculating the required information -- these are also used in the fifth example.
 
 * The fifth example is an extension of the fourth. It displays even more information about each time zone, such as the time and relative day in that time zone. Its shows how you can create a custom table view cell that contains a custom view that draws its content in -drawRect:.
@@ -31,12 +29,12 @@ If the content is complex, however (more than about three subviews), scrolling p
 ================================================================================
 BUILD REQUIREMENTS:
 
-Mac OS X 10.5.7, Xcode 3.2, iPhone OS 3.0
+iOS 4.0 SDK
 
 ================================================================================
 RUNTIME REQUIREMENTS:
 
-Mac OS X 10.5.7, iPhone OS 3.0
+iPhone OS 3.2 or later
 
 ================================================================================
 PACKAGING LIST:
@@ -152,8 +150,11 @@ Strings file containing localization dictionary.
 ================================================================================
 CHANGES FROM PREVIOUS VERSIONS:
 
+Verrsion 2.4
+- Upgraded project to build with the iOS 4 SDK, fixed NSTimeZoneWrapper parsing bug, replaced use of deprecated NSDate "addTimeInterval".
+
 Version 2.0
-- Corrected a memory leak in the displayMethod  in CustomTableViewCellAppDelegate.m.
+- Corrected a memory leak in the displayMethod in CustomTableViewCellAppDelegate.m.
 
 Version 2.0
 - Updated for and tested with iPhone OS 3.0.
@@ -190,4 +191,4 @@ Version 1.3
 - The samples now use nib files and UITableViewController; they also adopt the new pattern for table cell reuse.
 
 ================================================================================
-Copyright (C) 2008 Apple Inc. All rights reserved.
+Copyright (C) 2008-2010 Apple Inc. All rights reserved.

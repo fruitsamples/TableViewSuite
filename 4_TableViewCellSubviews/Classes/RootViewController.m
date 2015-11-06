@@ -43,7 +43,7 @@
  STRICT LIABILITY OR OTHERWISE, EVEN IF APPLE HAS BEEN ADVISED OF THE
  POSSIBILITY OF SUCH DAMAGE.
  
- Copyright (C) 2009 Apple Inc. All Rights Reserved.
+ Copyright (C) 2010 Apple Inc. All Rights Reserved.
  
  */
 
@@ -80,7 +80,7 @@
 	 Set up a timer to update the table view every minute on the minute so that it shows the current time.
 	 */
     NSDate *date = [NSDate date];
-    NSDate *oneMinuteFromNow = [date addTimeInterval:60];
+    NSDate *oneMinuteFromNow = [date dateByAddingTimeInterval:60];
     
 	NSCalendarUnit unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit;
 	NSDateComponents *timerDateComponents = [calendar components:unitFlags fromDate:oneMinuteFromNow];

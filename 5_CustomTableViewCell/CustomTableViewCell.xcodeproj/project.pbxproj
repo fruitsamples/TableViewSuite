@@ -14,17 +14,23 @@
 		28275AF10D6E02D900A8AFA4 /* TimeZoneWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 28275AF00D6E02D900A8AFA4 /* TimeZoneWrapper.m */; };
 		2867DEFA0D581C1F0037AED8 /* TimeZoneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2867DEF90D581C1F0037AED8 /* TimeZoneCell.m */; };
 		2867DEFD0D581C2E0037AED8 /* CustomTableViewCellAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2867DEFB0D581C2E0037AED8 /* CustomTableViewCellAppDelegate.m */; };
-		288749F60D9DA29200CC0247 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 288749F50D9DA29200CC0247 /* MainWindow.xib */; };
-		2898DD0E0D9466E300E0EC8B /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 2898DD0D0D9466E300E0EC8B /* Default.png */; };
 		28BDD37E0D628913006FBFB9 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BDD37D0D628913006FBFB9 /* RootViewController.m */; };
-		28C78CE80D595CFC003FFB91 /* 12-6PM.png in Resources */ = {isa = PBXBuildFile; fileRef = 28C78CE40D595CFC003FFB91 /* 12-6PM.png */; };
-		28C78CE90D595CFC003FFB91 /* 6-12AM.png in Resources */ = {isa = PBXBuildFile; fileRef = 28C78CE50D595CFC003FFB91 /* 6-12AM.png */; };
-		28C78CEA0D595CFC003FFB91 /* 6-12PM.png in Resources */ = {isa = PBXBuildFile; fileRef = 28C78CE60D595CFC003FFB91 /* 6-12PM.png */; };
-		28C78CEB0D595CFC003FFB91 /* 12-6AM.png in Resources */ = {isa = PBXBuildFile; fileRef = 28C78CE70D595CFC003FFB91 /* 12-6AM.png */; };
 		28CA94D90DECC7100008F9FE /* TimeZoneView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28CA94D80DECC7100008F9FE /* TimeZoneView.m */; };
 		28D655C30D6E3F78005F58A3 /* Region.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D655C20D6E3F78005F58A3 /* Region.m */; };
 		28F1A71C0DC92FE900332FD8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 28F1A71A0DC92FE900332FD8 /* Localizable.strings */; };
-		28F1A8940DC9369100332FD8 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 28F1A8930DC9369100332FD8 /* Icon.png */; };
+		5330886111D3DA4D00FAABF5 /* 12-6AM.png in Resources */ = {isa = PBXBuildFile; fileRef = 5330885511D3DA4D00FAABF5 /* 12-6AM.png */; };
+		5330886211D3DA4D00FAABF5 /* 12-6PM.png in Resources */ = {isa = PBXBuildFile; fileRef = 5330885611D3DA4D00FAABF5 /* 12-6PM.png */; };
+		5330886311D3DA4D00FAABF5 /* 6-12AM.png in Resources */ = {isa = PBXBuildFile; fileRef = 5330885711D3DA4D00FAABF5 /* 6-12AM.png */; };
+		5330886411D3DA4D00FAABF5 /* 6-12PM.png in Resources */ = {isa = PBXBuildFile; fileRef = 5330885811D3DA4D00FAABF5 /* 6-12PM.png */; };
+		5330886511D3DA4D00FAABF5 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5330885911D3DA4D00FAABF5 /* Default.png */; };
+		5330886611D3DA4D00FAABF5 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 5330885A11D3DA4D00FAABF5 /* Icon-72.png */; };
+		5330886711D3DA4D00FAABF5 /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 5330885B11D3DA4D00FAABF5 /* Icon-Small-50.png */; };
+		5330886811D3DA4D00FAABF5 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 5330885C11D3DA4D00FAABF5 /* Icon-Small.png */; };
+		5330886911D3DA4D00FAABF5 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5330885D11D3DA4D00FAABF5 /* Icon-Small@2x.png */; };
+		5330886A11D3DA4D00FAABF5 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5330885E11D3DA4D00FAABF5 /* Icon.png */; };
+		5330886B11D3DA4D00FAABF5 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5330885F11D3DA4D00FAABF5 /* Icon@2x.png */; };
+		5330886C11D3DA4D00FAABF5 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 5330886011D3DA4D00FAABF5 /* iTunesArtwork */; };
+		535E84AA11C8301A00010817 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 535E84A811C8301A00010817 /* MainWindow.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,14 +44,8 @@
 		2867DEF90D581C1F0037AED8 /* TimeZoneCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeZoneCell.m; sourceTree = "<group>"; };
 		2867DEFB0D581C2E0037AED8 /* CustomTableViewCellAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCellAppDelegate.m; sourceTree = "<group>"; };
 		2867DEFC0D581C2E0037AED8 /* CustomTableViewCellAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCellAppDelegate.h; sourceTree = "<group>"; };
-		288749F50D9DA29200CC0247 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
-		2898DD0D0D9466E300E0EC8B /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		28BDD37C0D628913006FBFB9 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		28BDD37D0D628913006FBFB9 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
-		28C78CE40D595CFC003FFB91 /* 12-6PM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "12-6PM.png"; sourceTree = "<group>"; };
-		28C78CE50D595CFC003FFB91 /* 6-12AM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "6-12AM.png"; sourceTree = "<group>"; };
-		28C78CE60D595CFC003FFB91 /* 6-12PM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "6-12PM.png"; sourceTree = "<group>"; };
-		28C78CE70D595CFC003FFB91 /* 12-6AM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "12-6AM.png"; sourceTree = "<group>"; };
 		28CA94D70DECC7100008F9FE /* TimeZoneView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeZoneView.h; sourceTree = "<group>"; };
 		28CA94D80DECC7100008F9FE /* TimeZoneView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeZoneView.m; sourceTree = "<group>"; };
 		28D655C10D6E3F78005F58A3 /* Region.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Region.h; path = Classes/Region.h; sourceTree = "<group>"; };
@@ -54,9 +54,21 @@
 		28F1A7200DC9300100332FD8 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		28F1A7210DC9300800332FD8 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		28F1A8850DC9365F00332FD8 /* ReadMe.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ReadMe.txt; path = ../ReadMe.txt; sourceTree = SOURCE_ROOT; };
-		28F1A8930DC9369100332FD8 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* CustomTableViewCell_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell_Prefix.pch; sourceTree = "<group>"; };
+		5330885511D3DA4D00FAABF5 /* 12-6AM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "12-6AM.png"; sourceTree = "<group>"; };
+		5330885611D3DA4D00FAABF5 /* 12-6PM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "12-6PM.png"; sourceTree = "<group>"; };
+		5330885711D3DA4D00FAABF5 /* 6-12AM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "6-12AM.png"; sourceTree = "<group>"; };
+		5330885811D3DA4D00FAABF5 /* 6-12PM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "6-12PM.png"; sourceTree = "<group>"; };
+		5330885911D3DA4D00FAABF5 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		5330885A11D3DA4D00FAABF5 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
+		5330885B11D3DA4D00FAABF5 /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50.png"; sourceTree = "<group>"; };
+		5330885C11D3DA4D00FAABF5 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
+		5330885D11D3DA4D00FAABF5 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
+		5330885E11D3DA4D00FAABF5 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		5330885F11D3DA4D00FAABF5 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		5330886011D3DA4D00FAABF5 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
+		535E84A911C8301A00010817 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -135,15 +147,10 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5330885411D3DA4D00FAABF5 /* images */,
+				535E84A811C8301A00010817 /* MainWindow.xib */,
 				28F1A71A0DC92FE900332FD8 /* Localizable.strings */,
-				288749F50D9DA29200CC0247 /* MainWindow.xib */,
-				28C78CE40D595CFC003FFB91 /* 12-6PM.png */,
-				28C78CE50D595CFC003FFB91 /* 6-12AM.png */,
-				28C78CE60D595CFC003FFB91 /* 6-12PM.png */,
-				28C78CE70D595CFC003FFB91 /* 12-6AM.png */,
-				28F1A8930DC9369100332FD8 /* Icon.png */,
 				8D1107310486CEB800E47090 /* Info.plist */,
-				2898DD0D0D9466E300E0EC8B /* Default.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -156,6 +163,25 @@
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5330885411D3DA4D00FAABF5 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				5330885511D3DA4D00FAABF5 /* 12-6AM.png */,
+				5330885611D3DA4D00FAABF5 /* 12-6PM.png */,
+				5330885711D3DA4D00FAABF5 /* 6-12AM.png */,
+				5330885811D3DA4D00FAABF5 /* 6-12PM.png */,
+				5330885911D3DA4D00FAABF5 /* Default.png */,
+				5330885A11D3DA4D00FAABF5 /* Icon-72.png */,
+				5330885B11D3DA4D00FAABF5 /* Icon-Small-50.png */,
+				5330885C11D3DA4D00FAABF5 /* Icon-Small.png */,
+				5330885D11D3DA4D00FAABF5 /* Icon-Small@2x.png */,
+				5330885E11D3DA4D00FAABF5 /* Icon.png */,
+				5330885F11D3DA4D00FAABF5 /* Icon@2x.png */,
+				5330886011D3DA4D00FAABF5 /* iTunesArtwork */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,14 +236,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28C78CE80D595CFC003FFB91 /* 12-6PM.png in Resources */,
-				28C78CE90D595CFC003FFB91 /* 6-12AM.png in Resources */,
-				28C78CEA0D595CFC003FFB91 /* 6-12PM.png in Resources */,
-				28C78CEB0D595CFC003FFB91 /* 12-6AM.png in Resources */,
-				2898DD0E0D9466E300E0EC8B /* Default.png in Resources */,
-				288749F60D9DA29200CC0247 /* MainWindow.xib in Resources */,
 				28F1A71C0DC92FE900332FD8 /* Localizable.strings in Resources */,
-				28F1A8940DC9369100332FD8 /* Icon.png in Resources */,
+				535E84AA11C8301A00010817 /* MainWindow.xib in Resources */,
+				5330886111D3DA4D00FAABF5 /* 12-6AM.png in Resources */,
+				5330886211D3DA4D00FAABF5 /* 12-6PM.png in Resources */,
+				5330886311D3DA4D00FAABF5 /* 6-12AM.png in Resources */,
+				5330886411D3DA4D00FAABF5 /* 6-12PM.png in Resources */,
+				5330886511D3DA4D00FAABF5 /* Default.png in Resources */,
+				5330886611D3DA4D00FAABF5 /* Icon-72.png in Resources */,
+				5330886711D3DA4D00FAABF5 /* Icon-Small-50.png in Resources */,
+				5330886811D3DA4D00FAABF5 /* Icon-Small.png in Resources */,
+				5330886911D3DA4D00FAABF5 /* Icon-Small@2x.png in Resources */,
+				5330886A11D3DA4D00FAABF5 /* Icon.png in Resources */,
+				5330886B11D3DA4D00FAABF5 /* Icon@2x.png in Resources */,
+				5330886C11D3DA4D00FAABF5 /* iTunesArtwork in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,6 +281,14 @@
 				28F1A7210DC9300800332FD8 /* de */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		535E84A811C8301A00010817 /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				535E84A911C8301A00010817 /* en */,
+			);
+			name = MainWindow.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -295,9 +335,10 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
-				SDKROOT = iphoneos3.0;
+				SDKROOT = iphoneos4.0;
 			};
 			name = Debug;
 		};
@@ -309,8 +350,9 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				PREBINDING = NO;
-				SDKROOT = iphoneos3.0;
+				SDKROOT = iphoneos4.0;
 			};
 			name = Release;
 		};

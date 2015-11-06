@@ -1,4 +1,3 @@
-
 /*
      File: TimeZoneWrapper.m
  Abstract: Object to represent a time zone, caching various derived properties that are expensive to compute.
@@ -43,7 +42,7 @@
  STRICT LIABILITY OR OTHERWISE, EVEN IF APPLE HAS BEEN ADVISED OF THE
  POSSIBILITY OF SUCH DAMAGE.
  
- Copyright (C) 2009 Apple Inc. All Rights Reserved.
+ Copyright (C) 2010 Apple Inc. All Rights Reserved.
  
  */
 
@@ -97,14 +96,13 @@ static UIImage *q4Image;
 		
 		NSString *name = nil;
 		if ([nameComponents count] == 2) {
-			name = [[nameComponents objectAtIndex:1] retain];
+			name = [nameComponents objectAtIndex:1];
 		}
-		else {
-			name = [[NSString alloc] initWithFormat:@"%@ (%@)", [nameComponents objectAtIndex:2], [nameComponents objectAtIndex:1]];
+		else if ([nameComponents count] == 3) {
+			name = [NSString stringWithFormat:@"%@ (%@)", [nameComponents objectAtIndex:2], [nameComponents objectAtIndex:1]];
 		}
 		
 		localeName = [[name stringByReplacingOccurrencesOfString:@"_" withString:@" "] retain];
-		[name release];
 	}
 	return self;
 }
