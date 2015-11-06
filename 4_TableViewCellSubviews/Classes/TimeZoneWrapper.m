@@ -3,7 +3,7 @@
      File: TimeZoneWrapper.m
  Abstract: Object to represent a time zone, caching various derived properties that are expensive to compute.
  
-  Version: 2.0
+  Version: 2.1
  
  Disclaimer: IMPORTANT:  This Apple software is supplied to you by Apple
  Inc. ("Apple") in consideration of your agreement to the following

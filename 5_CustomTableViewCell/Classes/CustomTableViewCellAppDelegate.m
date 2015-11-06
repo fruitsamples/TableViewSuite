@@ -3,7 +3,7 @@
      File: CustomTableViewCellAppDelegate.m
  Abstract: Application delegate that sets up the navigation controller and the root view controller.
  
-  Version: 2.0
+  Version: 2.1
  
  Disclaimer: IMPORTANT:  This Apple software is supplied to you by Apple
  Inc. ("Apple") in consideration of your agreement to the following
@@ -98,7 +98,7 @@ NSTimeZone *App_defaultTimeZone;
 	 */
 	NSArray *knownTimeZoneNames = [NSTimeZone knownTimeZoneNames];
 	
-	NSMutableArray *regions = [[NSMutableArray alloc] init];
+	NSMutableArray *regions = [NSMutableArray array];
 	
 	for (NSString *timeZoneName in knownTimeZoneNames) {
 		

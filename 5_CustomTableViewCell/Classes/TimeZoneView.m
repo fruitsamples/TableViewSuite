@@ -3,7 +3,7 @@
      File: TimeZoneView.m
  Abstract: A view to display various pieces of information about a time zone. Since the the view's content is fairly complex, to optimize scolling performance it draws its content directly in drawRect:.
  
-  Version: 2.0
+  Version: 2.1
  
  Disclaimer: IMPORTANT:  This Apple software is supplied to you by Apple
  Inc. ("Apple") in consideration of your agreement to the following

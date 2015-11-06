@@ -3,7 +3,7 @@
      File: TimeZoneCell.h
  Abstract: A table view cell to display various pieces of information about a time zone. Since the content is fairly complex and can't readily be rendered using three simple subviews, it uses a TimeZoneView to display the content.
  
-  Version: 2.0
+  Version: 2.1
  
  Disclaimer: IMPORTANT:  This Apple software is supplied to you by Apple
  Inc. ("Apple") in consideration of your agreement to the following

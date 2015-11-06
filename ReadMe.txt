@@ -153,6 +153,9 @@ Strings file containing localization dictionary.
 CHANGES FROM PREVIOUS VERSIONS:
 
 Version 2.0
+- Corrected a memory leak in the displayMethod  in CustomTableViewCellAppDelegate.m.
+
+Version 2.0
 - Updated for and tested with iPhone OS 3.0.
 - Adopted new UITableViewCell API where appropriate.
 - SimpleIndexedTableView uses UILocalizedIndexedCollation.

@@ -3,7 +3,7 @@
      File: RootViewController.m
  Abstract: View controller that serves as the table view's data source and delegate. It uses the current UILocalizedIndexedCollation object to organize the time zones into appropriate sections, and also to provide information about section titles and section index titles.
  
-  Version: 2.0
+  Version: 2.1
  
  Disclaimer: IMPORTANT:  This Apple software is supplied to you by Apple
  Inc. ("Apple") in consideration of your agreement to the following

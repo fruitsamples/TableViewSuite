@@ -3,7 +3,7 @@
      File: Region.h
  Abstract: Object to represent a region containing the corresponding time zone wrappers.
  
-  Version: 2.0
+  Version: 2.1
  
  Disclaimer: IMPORTANT:  This Apple software is supplied to you by Apple
  Inc. ("Apple") in consideration of your agreement to the following
